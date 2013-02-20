@@ -1,10 +1,10 @@
 module TimelineFu
   module Matchers
     class FireEvent
-      def initialize(event_type, opts = {})
-        @event_type = event_type
+      def initialize(action, opts = {})
+        @action = action
         @opts = opts
-        @method = :"fire_#{@event_type}_after_#{@opts[:on]}"
+        @method = :"fire_#{@action}_after_#{@opts[:on]}"
       end
 
       def matches?(subject)
@@ -34,7 +34,7 @@ module TimelineFu
       end
 
       def description
-        "fire a #{@event_type} event"
+        "fire a #{@action} event"
       end
 
       def expectation
@@ -51,8 +51,8 @@ module TimelineFu
 
     end
 
-    def fire_event(event_type, opts)
-      FireEvent.new(event_type, opts)
+    def fire_event(action, opts)
+      FireEvent.new(action, opts)
     end
   end
 end

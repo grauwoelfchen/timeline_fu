@@ -63,7 +63,7 @@ The ActiveRecord event hook will automatically instantiate a
 TimelineEvent instance for you.
 It will receive the following parameters in #create!
 
-- event_type 
+- action 
   - "new_comment" in the comment example
 - actor 
   - the commenter
